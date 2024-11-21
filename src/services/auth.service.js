@@ -1,12 +1,10 @@
 import api from './api';
 
-const login = async (username, password) => {
+const login = async (usernameOrEmail, password) => {
     const response = await api.post('/auth/login', {
-        username,
+        usernameOrEmail,
         password,
     });
-    
-    // Store user data including token in localStorage
     if (response.data) {
         console.log('Login response:', response.data); // Debug log
         localStorage.setItem('user', JSON.stringify(response.data));

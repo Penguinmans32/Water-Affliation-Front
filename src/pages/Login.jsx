@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 
 const Login = () => {
-    const [username, setUsername] = useState('');
+    const [usernameOrEmail, setUsernameOrEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -21,8 +21,8 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await AuthService.login(username, password);
-            console.log('Login response:', response.data); // Debug log
+            const response = await AuthService.login(usernameOrEmail, password);
+            console.log('Login response:', response.data);
 
             if(!response.data.token) {
                 throw new Error('Token not found in response');
@@ -52,9 +52,9 @@ const Login = () => {
                         margin="normal"
                         required
                         fullWidth
-                        label="Username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        label="Username or Email"
+                        value={usernameOrEmail}
+                        onChange={(e) => setUsernameOrEmail(e.target.value)}
                     />
                     <TextField
                         margin="normal"
