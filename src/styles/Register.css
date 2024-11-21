@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap');
+
+.water-register-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #006994, #003366);
+  overflow: hidden;
+  position: relative;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.water-register-container::before,
+.water-register-container::after {
+  content: "";
+  position: absolute;
+  width: 300vw;
+  height: 300vw;
+  top: -65vw;
+  left: -100vw;
+  background-color: rgba(255, 255, 255, 0.1);
+  animation: wave 25s infinite cubic-bezier(0.71, 0.33, 0.33, 0.68);
+  z-index: 1;
+}
+
+.water-register-container::after {
+  top: -70vw;
+  background-color: rgba(255, 255, 255, 0.15);
+  animation: wave 30s infinite cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.register-paper {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 20px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.register-paper::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 80%);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.register-paper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+.register-title {
+  color: #ffffff;
+  font-weight: 700 !important;
+  margin-bottom: 24px !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  animation: fadeInDown 0.5s ease;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 2px;
+}
+
+.register-input {
+  margin-bottom: 16px !important;
+  animation: fadeInUp 0.5s ease;
+}
+
+.register-input .MuiOutlinedInput-root {
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.register-input .MuiOutlinedInput-root:hover,
+.register-input .MuiOutlinedInput-root.Mui-focused {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.register-input .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.register-input .MuiInputLabel-root,
+.register-input .MuiOutlinedInput-input {
+  color: #ffffff;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.register-input .MuiInputLabel-root {
+  font-weight: 500;
+}
+
+.register-button {
+  background: linear-gradient(45deg, #00a8e8, #0077be) !important;
+  color: white !important;
+  border-radius: 12px !important;
+  padding: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  transition: all 0.3s ease !important;
+  animation: fadeInUp 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Raleway', sans-serif;
+}
+
+.register-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 80%);
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+}
+
+.register-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 168, 232, 0.4);
+}
+
+.register-button:hover::before {
+  left: 100%;
+}
+
+.login-link {
+  color: #00a8e8 !important;
+  transition: all 0.3s ease !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  animation: fadeInUp 0.5s ease;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+}
+
+.login-link:hover {
+  color: #ffffff !important;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  letter-spacing: 0.5px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.water-drops {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.drop {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+  border-radius: 0 50% 50% 50%;
+  transform: rotate(45deg);
+  animation: drop 5s infinite linear;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(-100px) rotate(45deg);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(calc(100vh + 100px)) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) rotate(45deg);
+    opacity: 0;
+  }
+}
