@@ -5,17 +5,24 @@ import {
     Typography,
     Box,
     Button,
+    Avatar,
 } from '@mui/material';
 
 const Dashboard = () => {
     const { user, logout } = useAuth();
 
     return (
-        <Container component="main" maxWidth="md">
+        <Container component="main" maxWidth="md" sx={{ mt: 4}}>
             <Paper elevation={6} sx={{ p: 4, mt: 8 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 3}}>
+                    <Avatar 
+                        src={user.profilePictureUrl}
+                        sx={{ width: 64, height: 64, mr: 2 }}
+                    />
                 <Typography component="h1" variant="h4" gutterBottom>
                     Welcome, {user.username}!
                 </Typography>
+                </Box>
                 <Box sx={{ mt: 3 }}>
                     <Typography variant="h6" gutterBottom>
                         User Information

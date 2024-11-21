@@ -16,15 +16,22 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const { login } = useAuth();
+    const { login: authLogin } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const response = await AuthService.login(username, password);
-            login(response.data);
+            console.log('Login response:', response.data); // Debug log
+
+            if(!response.data.token) {
+                throw new Error('Token not found in response');
+            }
+            
+            authLogin(response.data);
             navigate('/dashboard');
         } catch (err) {
+            console.error('Login error:', err);
             setError(err.response?.data?.message || 'An error occurred');
         }
     };
